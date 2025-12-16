@@ -65,18 +65,6 @@ Both the supervisor and subagent have their own isolated environments managed by
 
 Copy .env.example to a .env file and fill in values.
 
-### Install Dependencies
-
-```bash
-# Install subagent dependencies
-cd subagent
-uv sync
-
-# Install supervisor dependencies  
-cd supervisor
-uv sync
-```
-
 ## Running the Example
 
 You need to run both services in separate terminals.
@@ -85,8 +73,8 @@ You need to run both services in separate terminals.
 
 ```bash
 cd subagent
-source .venv/bin/activate
-langgraph dev --port 8000 --no-browser
+uv sync
+uv run langgraph dev --port 8000 --no-browser
 ```
 
 You should see:
@@ -99,7 +87,7 @@ You should see:
 
 ```bash
 cd supervisor
-source .venv/bin/activate
+uv sync
 uv run langgraph dev
 ```
 
@@ -111,20 +99,11 @@ You should see:
 
 ## Testing Distributed Tracing
 
-### Option 1: Use LangGraph Studio
+Use LangSmith Studio
 1. Open the supervisor's Studio UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
 2. Send a message to the supervisor
 3. Watch it route to the subagent
 4. Check LangSmith to see the unified trace
-
-## Option 2: Use test.py in the supervisor folder
-1. run 
-``` bash
-cd supervisor
-uv run test.py
-``` 
-2. Watch it route to the subagent
-3. Check LangSmith to see the unified trace
 
 ## Verifying Distributed Tracing
 

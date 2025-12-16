@@ -16,8 +16,8 @@ First, make sure the subagent is running on `http://localhost:8000`, then:
 ```bash
 cd supervisor
 uv sync
-langgraph dev 
+uv run langgraph dev 
 ```
 
-The supervisor will start on `http://localhost:8001` and will call the subagent with distributed tracing enabled.
+The supervisor will start on `http://localhost:3000` and will call the subagent with distributed tracing enabled. Test it out in LangSmith Studio!
 

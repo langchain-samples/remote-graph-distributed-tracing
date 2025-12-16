@@ -16,7 +16,7 @@ This allows traces from this subagent to appear as child traces under the parent
 ```bash
 cd subagent
 uv sync 
-langgraph dev --port 8000 --no-browser
+uv run langgraph dev --port 8000 --no-browser
 ```
 
 The subagent will start on `http://localhost:8000` by default.
